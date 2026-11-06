@@ -14,7 +14,6 @@
 
   function resize(){
     var dpr = window.devicePixelRatio || 1;
-    // Set actual canvas drawing buffer size
     canvas.width = Math.round(window.innerWidth * Math.min(dpr, 2));
     canvas.height = Math.round(window.innerHeight * Math.min(dpr, 2));
     drawFrame(currentFrame);
@@ -26,35 +25,16 @@
     var cw = canvas.width, ch = canvas.height;
     var iw = img.naturalWidth, ih = img.naturalHeight;
 
+    // Full edge-to-edge cover on both mobile and desktop
+    var scale = Math.max(cw / iw, ch / ih);
+    var dw = iw * scale;
+    var dh = ih * scale;
+    var dx = (cw - dw) / 2;
+    var dy = (ch - dh) / 2;
+
     ctx.save();
-    // Fill background with exact deep color of frame edges
-    ctx.fillStyle = '#0a0d13';
-    ctx.fillRect(0, 0, cw, ch);
-
-    // Make the car brighter and easier to see
-    ctx.filter = 'brightness(1.32) contrast(1.06)';
-
-    // Responsive aspect ratio adjustment for mobile vs desktop
-    var isPortrait = cw < ch;
-    var scale, dw, dh, dx, dy;
-
-    if (isPortrait) {
-      // On mobile portrait, avoid cutting off the sides of the car
-      // Fit comfortably to width with slight margin
-      scale = Math.max(cw / iw, (ch / ih) * 0.52);
-      dw = iw * scale;
-      dh = ih * scale;
-      dx = (cw - dw) / 2;
-      dy = (ch - dh) / 2;
-    } else {
-      // Desktop / laptop widescreen cover
-      scale = Math.max(cw / iw, ch / ih);
-      dw = iw * scale;
-      dh = ih * scale;
-      dx = (cw - dw) / 2;
-      dy = (ch - dh) / 2;
-    }
-
+    // Balanced brightness and contrast: deep rich blacks, bright reflections, not washed out
+    ctx.filter = 'brightness(1.10) contrast(1.08)';
     ctx.drawImage(img, dx, dy, dw, dh);
     ctx.restore();
   }
