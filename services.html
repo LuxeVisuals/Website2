@@ -3,13 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Services &amp; prices | CrossRoad Driving School</title>
-<meta name="description" content="Code 8 driving school prices in Benoni, Boksburg, Springs and Brakpan: learner&rsquo;s licence, driving licence and combined package.">
+<title>Services | CrossRoad Driving School</title>
+<meta name="description" content="CrossRoad Driving School services: Code 8 &amp; 10 learner's licence, driving licence, refresher lessons, PrDP, vehicle licence disk renewals and booking assistance in Benoni, Boksburg, Springs and Brakpan.">
 <meta name="theme-color" content="#0A1626">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Services &amp; prices | CrossRoad Driving School">
-<meta property="og:description" content="Code 8 driving school prices in Benoni, Boksburg, Springs and Brakpan: learner&rsquo;s licence, driving licence and combined package.">
-<!-- After deploying, change og:image to the full URL, e.g. https://yourname.github.io/repo/assets/og-image.jpg -->
+<meta property="og:title" content="Services | CrossRoad Driving School">
+<meta property="og:description" content="CrossRoad Driving School services: Code 8 &amp; 10 learner's licence, driving licence, refresher lessons, PrDP, vehicle licence disk renewals and booking assistance in Benoni, Boksburg, Springs and Brakpan.">
 <meta property="og:image" content="assets/og-image.jpg">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
@@ -17,6 +16,24 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&amp;family=Barlow+Semi+Condensed:wght@600;700&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/styles.css">
+<style>
+  /* Additional styles for new service cards and hours */
+  .service-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:24px}
+  .service-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:28px;display:flex;flex-direction:column;gap:14px}
+  .service-card h3{margin:0;font-size:1.3rem}
+  .service-card p{margin:0;color:var(--muted);font-size:1rem;flex:1}
+  .service-card .btn{align-self:flex-start;margin-top:auto}
+  .service-card .tag{display:inline-block;background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:3px 10px;font-size:.85rem;font-weight:600;color:var(--muted);margin-bottom:4px}
+  .notice-box{background:#FFF8E6;border:1px solid #F2B01E;border-radius:var(--radius);padding:22px 26px;max-width:820px}
+  .notice-box p{margin:0 0 .5em;color:var(--ink)}
+  .notice-box p:last-child{margin:0}
+  .hours-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;max-width:720px}
+  .hours-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:20px 24px}
+  .hours-card strong{display:block;font-family:var(--font-head);font-size:1.15rem;margin-bottom:4px}
+  .hours-card span{color:var(--muted);font-size:1rem}
+  .hours-note{margin-top:16px;color:var(--muted);font-size:.95rem;font-style:italic}
+  @media(max-width:620px){.service-card .btn{align-self:stretch;text-align:center;justify-content:center}}
+</style>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -27,7 +44,7 @@
     <nav id="site-nav" class="nav" aria-label="Main">
       <ul>
         <li><a href="index.html">Home</a></li>
-        <li><a href="services.html" aria-current="page">Services &amp; prices</a></li>
+        <li><a href="services.html" aria-current="page">Services</a></li>
         <li><a href="areas.html">Areas</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
@@ -38,77 +55,172 @@
 <main id="main">
 <section class="page-hero">
   <div class="container">
-    <h1>Services &amp; prices</h1>
-    <p>Simple Code 8 packages with the price listed upfront. Pay a deposit to book, and the balance once your test date is confirmed.</p>
+    <h1>Our Services</h1>
+    <p>Everything you need to get licensed and on the road. Contact us for a personalised quote.</p>
   </div>
 </section>
 
+<!-- PACKAGES -->
 <section class="section">
   <div class="container">
-    <div class="section-head"><h2>Packages</h2><p>Choose the package that fits where you are right now.</p></div>
-    <div class="plan-rows">
-      <article class="plan-row">
-        <div><h3>Learner&rsquo;s licence only</h3><p>Get your Code 8 learner&rsquo;s licence.</p></div>
-        <div class="fig fig--total"><span>Total price</span><strong>R1&nbsp;600</strong></div>
-        <div class="fig"><span>Deposit to book</span><strong>R500</strong></div>
-        <div class="fig"><span>Balance</span><strong>R1&nbsp;100</strong></div>
-      </article>
-      <article class="plan-row">
-        <div><h3>Driving licence only</h3><p>For learners who already hold a valid learner&rsquo;s licence.</p></div>
-        <div class="fig fig--total"><span>Total price</span><strong>R4&nbsp;500</strong></div>
-        <div class="fig"><span>Deposit to book</span><strong>R1&nbsp;500</strong></div>
-        <div class="fig"><span>Balance</span><strong>R3&nbsp;000</strong></div>
-      </article>
-      <article class="plan-row plan-row--best"><span class="badge">Best value</span>
-        <div><h3>Learner&rsquo;s &amp; licence package</h3><p>Both together, from learner&rsquo;s to driving licence.</p><span class="save">Saves R600 compared with booking separately</span></div>
-        <div class="fig fig--total"><span>Total price</span><strong>R5&nbsp;500</strong></div>
-        <div class="fig"><span>Deposit to book</span><strong>R1&nbsp;500</strong></div>
-        <div class="fig"><span>Balance</span><strong>R4&nbsp;000</strong></div>
-      </article>
+    <div class="section-head">
+      <h2>Packages</h2>
+      <p>Choose the package that fits where you are right now. Contact us for a quote.</p>
     </div>
-    <div class="btn-row"><a class="btn btn--blue" href="contact.html">Book a package</a></div>
+    <div class="plan-rows">
+
+      <!-- Learner's only -->
+      <article class="plan-row">
+        <div>
+          <h3>Learner&rsquo;s Licence Only</h3>
+          <p>Get your Code 8 or Code 10 learner&rsquo;s licence. Includes theory preparation and test booking assistance.</p>
+          <p style="margin-top:8px;font-size:.93rem;color:var(--muted);">
+            <strong style="color:var(--ink);">Note:</strong> All department fees are for the applicant&rsquo;s own account. Outstanding balance is due once your test date is confirmed.
+          </p>
+        </div>
+        <div style="display:flex;align-items:center;">
+          <a class="btn btn--blue" href="contact.html">Contact for a Quote</a>
+        </div>
+      </article>
+
+      <!-- Licence only -->
+      <article class="plan-row">
+        <div>
+          <h3>Driving Licence Only</h3>
+          <p>For applicants who already hold a valid learner&rsquo;s licence. Includes <strong>8&ndash;10 lessons</strong> (parking &amp; road) in the package price. Additional lessons will be added to your outstanding balance.</p>
+          <p style="margin-top:8px;font-size:.93rem;color:var(--muted);">
+            <strong style="color:var(--ink);">Note:</strong> All department fees are for the applicant&rsquo;s own account. Outstanding balance is due once your test date is confirmed.
+          </p>
+        </div>
+        <div style="display:flex;align-items:center;">
+          <a class="btn btn--blue" href="contact.html">Contact for a Quote</a>
+        </div>
+      </article>
+
+      <!-- Combo package -->
+      <article class="plan-row plan-row--best"><span class="badge">Best value</span>
+        <div>
+          <h3>Learner&rsquo;s &amp; Licence Package</h3>
+          <p>From learner&rsquo;s licence all the way to your driving licence. Includes <strong>8&ndash;10 lessons</strong> (parking &amp; road) in the package price. Additional lessons will be added to your outstanding balance.</p>
+          <p style="margin-top:8px;font-size:.93rem;color:var(--muted);">
+            <strong style="color:var(--ink);">Note:</strong> All department fees are for the applicant&rsquo;s own account. Outstanding balance is due once your test date is confirmed.
+          </p>
+        </div>
+        <div style="display:flex;align-items:center;">
+          <a class="btn btn--blue" href="contact.html">Contact for a Quote</a>
+        </div>
+      </article>
+
+    </div>
   </div>
 </section>
 
+<!-- ADDITIONAL SERVICES -->
 <section class="section section--paper">
   <div class="container">
-    <div class="section-head"><h2>Driving lessons</h2><p>Need extra practice? Lessons are priced per lesson, depending on distance.</p></div>
-    <div class="lesson-grid">
-      <div class="panel"><h3>Standard distance</h3><p class="price">R200</p><p class="muted">per lesson</p></div>
-      <div class="panel"><h3>Longer distance</h3><p class="price">R300</p><p class="muted">per lesson</p></div>
+    <div class="section-head">
+      <h2>Additional Services</h2>
+      <p>We offer a range of supporting services to help you at every step of the licensing process.</p>
     </div>
-    <p class="fine">Contact us with your address and we&rsquo;ll confirm which price applies to you.</p>
+    <div class="service-grid">
+
+      <div class="service-card">
+        <span class="tag">Refresher</span>
+        <h3>Refresher Lessons</h3>
+        <p>A refresher package of <strong>8 lessons in total</strong>, covering both parking manoeuvres and road driving. Ideal for licensed drivers who want to build confidence or polish their skills.</p>
+        <a class="btn btn--blue" href="contact.html">Contact for a Quote</a>
+      </div>
+
+      <div class="service-card">
+        <span class="tag">Booking Assistance</span>
+        <h3>Test Booking Assistance</h3>
+        <p>We assist you with booking your learner&rsquo;s and driving licence tests at the DLTC. We handle the scheduling so you don&rsquo;t have to.</p>
+        <a class="btn btn--blue" href="contact.html">Contact for a Quote</a>
+      </div>
+
+      <div class="service-card">
+        <span class="tag">Code 8 &amp; 10</span>
+        <h3>Code 8 &amp; Code 10 Training</h3>
+        <p>We offer training for both Code 8 (motor vehicle) and Code 10 (heavy motor vehicle) licences — learner&rsquo;s and driving licence.</p>
+        <a class="btn btn--blue" href="contact.html">Contact for a Quote</a>
+      </div>
+
+      <div class="service-card">
+        <span class="tag">Licence Discs</span>
+        <h3>Vehicle Licence Disk Renewals</h3>
+        <p>We assist with the renewal of your vehicle licence disk so you stay legal and on the road without the hassle.</p>
+        <a class="btn btn--blue" href="contact.html">Contact for a Quote</a>
+      </div>
+
+      <div class="service-card">
+        <span class="tag">PrDP</span>
+        <h3>Professional Driving Permit (PrDP)</h3>
+        <p>We assist with PrDP applications for drivers who transport passengers or dangerous goods professionally.</p>
+        <a class="btn btn--blue" href="contact.html">Contact for a Quote</a>
+      </div>
+
+    </div>
   </div>
 </section>
 
+<!-- HOW PAYMENT WORKS -->
 <section class="section">
   <div class="container">
-    <div class="section-head"><h2>How payment works</h2></div>
+    <div class="section-head"><h2>How Payment Works</h2></div>
     <ul class="pay-list">
-      <li><strong>Deposit</strong><span>Pay the deposit for your package to secure your booking.</span></li>
-      <li><strong>Balance</strong><span>Pay the outstanding balance once your test date has been confirmed.</span></li>
-      <li><strong>Lessons</strong><span>Lessons are charged at R200 or R300 each, depending on distance.</span></li>
+      <li><strong>Book</strong><span>Contact us to get a quote and secure your booking.</span></li>
+      <li><strong>Balance</strong><span>Your outstanding balance is due once your test date has been confirmed.</span></li>
+      <li><strong>Extra Lessons</strong><span>Additional lessons beyond those included in your package will be added to your outstanding balance.</span></li>
+      <li><strong>Department Fees</strong><span>All department (DLTC/traffic) fees are for the applicant&rsquo;s own account and are not included in the package price.</span></li>
     </ul>
   </div>
 </section>
 
+<!-- BUSINESS HOURS -->
 <section class="section section--paper">
   <div class="container">
-    <div class="section-head"><h2>Common questions</h2></div>
-    <div class="faq">
-      <details><summary>How do I book?</summary><p>Send us a message on WhatsApp or use the form on our contact page. Tell us your area and the package you want, then pay the deposit to secure your booking.</p></details>
-      <details><summary>When do I pay the balance?</summary><p>You pay the outstanding balance once your test date has been confirmed.</p></details>
-      <details><summary>Do you pick me up for lessons?</summary><p>Yes, we offer student pick-up and drop-off depending on your location. Tell us where you live and we&rsquo;ll confirm.</p></details>
-      <details><summary>Where do I take my test?</summary><p>We work with the Brakpan, Springs and Boksburg DLTC offices.</p></details>
-      <details><summary>Which areas do you cover?</summary><p>Benoni, Boksburg, Springs, Brakpan and surrounding areas. If you&rsquo;re unsure, get in touch and ask.</p></details>
-      <details><summary>Which licence code are these prices for?</summary><p>All prices on this page are for Code 8.</p></details>
+    <div class="section-head">
+      <h2>Business Hours</h2>
+      <p>We&rsquo;re available during the following hours. After-hours times can be arranged on request.</p>
+    </div>
+    <div class="hours-grid">
+      <div class="hours-card">
+        <strong>Monday &ndash; Friday</strong>
+        <span>07:00 &ndash; 16:00</span>
+      </div>
+      <div class="hours-card">
+        <strong>Saturday</strong>
+        <span>07:00 &ndash; 13:00</span>
+      </div>
+      <div class="hours-card">
+        <strong>After Hours</strong>
+        <span>Times after hours can be arranged.</span>
+      </div>
     </div>
   </div>
 </section>
+
+<!-- FAQ -->
+<section class="section">
+  <div class="container">
+    <div class="section-head"><h2>Common Questions</h2></div>
+    <div class="faq">
+      <details><summary>How do I book?</summary><p>Send us a message on WhatsApp or use the form on our contact page. Tell us your area and the service you need and we&rsquo;ll provide a quote and confirm the details.</p></details>
+      <details><summary>When do I pay the balance?</summary><p>Your outstanding balance is due once your test date has been confirmed.</p></details>
+      <details><summary>What department fees do I need to pay?</summary><p>All DLTC and traffic department fees are payable by the applicant and are not included in our package prices. We will advise you of the applicable fees when we confirm your booking.</p></details>
+      <details><summary>How many lessons are included in the licence and combo packages?</summary><p>The Driving Licence Only package and the Learner&rsquo;s &amp; Licence Package both include 8&ndash;10 lessons covering parking manoeuvres and road driving. Any additional lessons required will be added to your outstanding balance.</p></details>
+      <details><summary>Do you pick me up for lessons?</summary><p>Yes, we offer student pick-up and drop-off depending on your location. Tell us where you live and we&rsquo;ll confirm.</p></details>
+      <details><summary>Where do I take my test?</summary><p>We work with the Brakpan, Springs and Boksburg DLTC offices.</p></details>
+      <details><summary>Which areas do you cover?</summary><p>Benoni, Boksburg, Springs, Brakpan and surrounding areas. If you&rsquo;re unsure, get in touch and ask.</p></details>
+      <details><summary>Do you offer after-hours lessons?</summary><p>Yes, times after hours can be arranged. Contact us to discuss availability.</p></details>
+    </div>
+  </div>
+</section>
+
 <section class="cta-band">
   <div class="container">
-    <h2>Ready to book your first lesson?</h2>
-    <p>Tell us where you live and which package you want. We&rsquo;ll confirm the details and your pick-up arrangements.</p>
+    <h2>Ready to get started?</h2>
+    <p>Contact us today for a personalised quote and to secure your booking.</p>
     <div class="btn-row">
       <a class="btn btn--yellow" data-whatsapp href="contact.html">WhatsApp us</a>
       <a class="btn btn--outline-light" href="contact.html">Send an enquiry</a>
@@ -121,13 +233,13 @@
     <div class="footer-grid">
       <div>
         <a class="footer-logo" href="index.html" aria-label="CrossRoad Driving School, home"><img src="assets/logo-dark.png" alt="CrossRoad Driving School" width="1200" height="288" loading="lazy"></a>
-        <p class="footer-about">Code 8 learner&rsquo;s and driving licence training in Benoni, Boksburg, Springs and Brakpan.</p>
+        <p class="footer-about">Code 8 &amp; 10 learner&rsquo;s and driving licence training in Benoni, Boksburg, Springs and Brakpan.</p>
       </div>
       <div>
         <h3>Pages</h3>
         <ul>
           <li><a href="index.html">Home</a></li>
-          <li><a href="services.html">Services &amp; prices</a></li>
+          <li><a href="services.html">Services</a></li>
           <li><a href="areas.html">Areas</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
@@ -149,11 +261,17 @@
           <li><a data-email href="contact.html"><span data-email-text>Email us</span></a></li>
           <li><a data-whatsapp href="contact.html">Message us on WhatsApp</a></li>
         </ul>
+        <div style="margin-top:16px;font-size:.92rem;color:var(--on-dark);">
+          <strong style="color:#fff;display:block;margin-bottom:4px;">Business Hours</strong>
+          Mon&ndash;Fri: 07:00&ndash;16:00<br>
+          Saturday: 07:00&ndash;13:00<br>
+          After hours by arrangement
+        </div>
       </div>
     </div>
     <div class="footer-bottom">
       <span>&copy; 2026 CrossRoad Driving School. All rights reserved.</span>
-      <span>Prices are for Code 8.</span>
+      <span>Code 8 &amp; Code 10 training available.</span>
     </div>
   </div>
 </footer>
