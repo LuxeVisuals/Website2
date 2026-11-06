@@ -17,15 +17,16 @@
 <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&amp;family=Barlow+Semi+Condensed:wght@600;700&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/styles.css">
 <style>
-  .tos-content{max-width:760px}
-  .tos-content h2{font-size:1.6rem;margin-top:2em;margin-bottom:.4em;border-bottom:2px solid var(--line);padding-bottom:.3em}
+  .tos-content{max-width:760px;background:rgba(15,23,42,0.85);backdrop-filter:blur(10px);border:1px solid #4B5563;border-radius:var(--radius);padding:36px}
+  .tos-content h2{font-size:1.6rem;margin-top:2em;margin-bottom:.4em;border-bottom:1px solid rgba(255,255,255,0.15);padding-bottom:.3em;color:#FFFFFF}
   .tos-content h2:first-child{margin-top:0}
-  .tos-content p{color:var(--muted)}
-  .tos-placeholder{display:inline-block;background:#FFF8E6;border:1px solid #F2B01E;border-radius:4px;padding:2px 10px;font-size:.93rem;color:#7A5300;font-style:italic}
+  .tos-content p{color:var(--on-dark)}
+  .tos-placeholder{display:inline-block;background:rgba(242,176,30,0.15);border:1px solid #F2B01E;border-radius:4px;padding:2px 10px;font-size:.93rem;color:#F2B01E;font-style:italic}
 </style>
 </head>
 <body>
-<canvas id="scroll-bg-canvas"></canvas>
+<canvas id="scroll-bg-canvas" style="position:fixed;top:0;left:0;width:100vw;height:100vh;width:100%;height:100%;z-index:-2;pointer-events:none;display:block;"></canvas>
+
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="site-header">
   <div class="container header-inner">
@@ -59,7 +60,7 @@
       <p><span class="tos-placeholder">[Content to be added]</span></p>
 
       <h2>2. Services</h2>
-      <p>CrossRoad Driving School provides driving tuition, learner&rsquo;s and driving licence training (Code 8 &amp; 10), refresher lessons, PrDP assistance, vehicle licence disk renewals, and DLTC test booking assistance.</p>
+      <p>CrossRoad Driving School provides driving tuition, learner&rsquo;s licence training (Code 1, 2, 3), driving licence training (Code 8/B &amp; Code 10/C), refresher lessons, PrDP assistance, vehicle licence disk renewals, and DLTC test booking assistance.</p>
       <p><span class="tos-placeholder">[Content to be added]</span></p>
 
       <h2>3. Payment Terms</h2>
@@ -67,7 +68,7 @@
       <p><span class="tos-placeholder">[Content to be added]</span></p>
 
       <h2>4. Cancellation Policy</h2>
-      <p>Cancellations must be communicated to CrossRoad Driving School as soon as possible. Cancellation terms and any applicable charges will be communicated at the time of booking.</p>
+      <p>Cancellations must be communicated to CrossRoad Driving School as soon as possible. Cancellation terms and any applicable conditions will be communicated at the time of booking.</p>
       <p><span class="tos-placeholder">[Content to be added]</span></p>
 
       <h2>5. Liability</h2>
@@ -78,21 +79,10 @@
       <p>Personal information collected during the booking process (name, contact number, email, area) is used solely for the purpose of providing our services and communicating with you. We will not share your personal information with third parties without your consent, except as required by law.</p>
       <p><span class="tos-placeholder">[Content to be added]</span></p>
 
-      <h2>7. Contact</h2>
-      <p>If you have any questions about these Terms of Service, please <a href="contact.html">contact us</a>.</p>
+      <h2>7. Contact Information</h2>
+      <p>If you have any questions about these Terms of Service, please contact us at <a href="mailto:CrossRoadDriving@gmail.com">CrossRoadDriving@gmail.com</a>.</p>
       <p><span class="tos-placeholder">[Content to be added]</span></p>
 
-    </div>
-  </div>
-</section>
-
-<section class="cta-band">
-  <div class="container">
-    <h2>Have a question?</h2>
-    <p>Get in touch and we&rsquo;ll be happy to assist.</p>
-    <div class="btn-row">
-      <a class="btn btn--yellow" data-whatsapp href="contact.html">WhatsApp us</a>
-      <a class="btn btn--outline-light" href="contact.html">Send an enquiry</a>
     </div>
   </div>
 </section>
@@ -102,7 +92,7 @@
     <div class="footer-grid">
       <div>
         <a class="footer-logo" href="index.html" aria-label="CrossRoad Driving School, home"><img src="assets/logo-dark.png" alt="CrossRoad Driving School" width="1200" height="288" loading="lazy"></a>
-        <p class="footer-about">Code 8 &amp; 10 learner&rsquo;s and driving licence training in Benoni, Boksburg, Springs and Brakpan.</p>
+        <p class="footer-about">Learner&rsquo;s licence (Code 1, 2, 3) and driving licence (Code 8/B &amp; Code 10/C) training in Benoni, Boksburg, Springs and Brakpan.</p>
       </div>
       <div>
         <h3>Pages</h3>
@@ -142,7 +132,7 @@
     </div>
     <div class="footer-bottom">
       <span>&copy; 2026 CrossRoad Driving School. All rights reserved.</span>
-      <span><a href="tos.html" style="color:inherit">Terms of Service</a></span>
+      <a class="btn-tos" href="tos.html">Terms of Service</a>
     </div>
   </div>
 </footer>

@@ -1,4 +1,5 @@
 (function(){
+  "use strict";
   var FRAME_COUNT = 60;
   var BASE = 'Frames/ezgif-frame-';
   var frames = [];
@@ -12,8 +13,10 @@
   function pad(n){ return String(n).padStart(3,'0'); }
 
   function resize(){
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    var dpr = window.devicePixelRatio || 1;
+    // Set actual canvas drawing buffer size
+    canvas.width = Math.round(window.innerWidth * Math.min(dpr, 2));
+    canvas.height = Math.round(window.innerHeight * Math.min(dpr, 2));
     drawFrame(currentFrame);
   }
 
@@ -22,11 +25,38 @@
     if(!img || !img.complete || !img.naturalWidth) return;
     var cw = canvas.width, ch = canvas.height;
     var iw = img.naturalWidth, ih = img.naturalHeight;
-    var scale = Math.max(cw/iw, ch/ih);
-    var dw = iw*scale, dh = ih*scale;
-    var dx = (cw-dw)/2, dy = (ch-dh)/2;
-    ctx.clearRect(0,0,cw,ch);
-    ctx.drawImage(img,dx,dy,dw,dh);
+
+    ctx.save();
+    // Fill background with exact deep color of frame edges
+    ctx.fillStyle = '#0a0d13';
+    ctx.fillRect(0, 0, cw, ch);
+
+    // Make the car brighter and easier to see
+    ctx.filter = 'brightness(1.32) contrast(1.06)';
+
+    // Responsive aspect ratio adjustment for mobile vs desktop
+    var isPortrait = cw < ch;
+    var scale, dw, dh, dx, dy;
+
+    if (isPortrait) {
+      // On mobile portrait, avoid cutting off the sides of the car
+      // Fit comfortably to width with slight margin
+      scale = Math.max(cw / iw, (ch / ih) * 0.52);
+      dw = iw * scale;
+      dh = ih * scale;
+      dx = (cw - dw) / 2;
+      dy = (ch - dh) / 2;
+    } else {
+      // Desktop / laptop widescreen cover
+      scale = Math.max(cw / iw, ch / ih);
+      dw = iw * scale;
+      dh = ih * scale;
+      dx = (cw - dw) / 2;
+      dy = (ch - dh) / 2;
+    }
+
+    ctx.drawImage(img, dx, dy, dw, dh);
+    ctx.restore();
   }
 
   function onScroll(){
@@ -34,9 +64,9 @@
     rafPending = true;
     requestAnimationFrame(function(){
       rafPending = false;
-      var maxScroll = document.body.scrollHeight - window.innerHeight;
+      var maxScroll = document.documentElement.scrollHeight - window.innerHeight;
       var progress = maxScroll > 0 ? Math.min(1, Math.max(0, window.scrollY / maxScroll)) : 0;
-      var idx = Math.round(progress * (FRAME_COUNT-1));
+      var idx = Math.min(FRAME_COUNT - 1, Math.max(0, Math.round(progress * (FRAME_COUNT - 1))));
       if(idx !== currentFrame){
         currentFrame = idx;
         drawFrame(currentFrame);
@@ -44,15 +74,18 @@
     });
   }
 
-  for(var i=1; i<=FRAME_COUNT; i++){
+  // Preload all 60 frames
+  for(var i = 1; i <= FRAME_COUNT; i++){
     (function(idx){
       var img = new Image();
       img.onload = function(){
         loaded++;
-        if(idx-1 === 0) drawFrame(0);
+        if(idx - 1 === 0 || idx - 1 === currentFrame) {
+          drawFrame(currentFrame);
+        }
       };
       img.src = BASE + pad(idx) + '.jpg';
-      frames[idx-1] = img;
+      frames[idx - 1] = img;
     })(i);
   }
 

@@ -1,7 +1,7 @@
 (function () {
   "use strict";
   var cfg = window.CROSSROAD_CONFIG || {};
-  var isPlaceholder = !cfg.phoneIntl || cfg.phoneIntl === "27000000000";
+  var isPlaceholderPhone = !cfg.phoneIntl || cfg.phoneIntl === "27000000000";
   var greeting = "Hi CrossRoad Driving School, I'd like to find out about lessons.";
 
   /* Mobile navigation */
@@ -35,28 +35,57 @@
       e.preventDefault();
       var channel = (e.submitter && e.submitter.getAttribute("data-channel")) || "whatsapp";
       var d = new FormData(form);
-      var lines = [
-        "Hi CrossRoad Driving School,",
-        "My name is " + d.get("name") + ".",
-        "I live in: " + d.get("area") + ".",
-        "I'm interested in: " + d.get("package") + ".",
-        d.get("message") ? "Message: " + d.get("message") : "",
-        "Please contact me on " + d.get("phone") + "."
-      ].filter(Boolean).join("\n");
 
-      if (isPlaceholder) {
-        status.style.color = "#B3261E";
-        status.textContent = "Contact details are not set up yet. Add them in js/config.js.";
-        return;
-      }
-      status.style.color = "#146C2E";
+      var firstName = (d.get("firstName") || d.get("name") || "").toString().trim();
+      var surname = (d.get("surname") || "").toString().trim();
+      var fullName = (firstName + " " + surname).trim() || "Prospective Student";
+      var phone = (d.get("phone") || "").toString().trim();
+      var area = (d.get("area") || "").toString().trim();
+      var pkg = (d.get("package") || "").toString().trim();
+      var msg = (d.get("message") || "").toString().trim();
+
       if (channel === "email") {
-        status.textContent = "Opening your email app\u2026";
-        window.location.href = "mailto:" + cfg.email + "?subject=" +
-          encodeURIComponent("Driving lessons enquiry") + "&body=" + encodeURIComponent(lines);
+        var emailLines = [
+          "Good day CrossRoad Driving School,",
+          "",
+          "I would like to enquire about your driving school services. Here are my details:",
+          "",
+          "• Full Name: " + fullName,
+          "• Phone Number: " + phone,
+          "• Location / Area: " + area,
+          "• Service / Package Requested: " + pkg,
+          msg ? "• Additional Notes / Message: " + msg : "",
+          "",
+          "Please contact me with a quote and further information.",
+          "",
+          "Kind regards,",
+          fullName
+        ].filter(function (line) { return line !== undefined && line !== null; }).join("\r\n");
+
+        var subject = "Driving School Enquiry: " + pkg + " - " + fullName;
+        status.style.color = "#146C2E";
+        status.textContent = "Opening your email app with your details pre-filled\u2026";
+        window.location.href = "mailto:" + (cfg.email || "CrossRoadDriving@gmail.com") +
+          "?subject=" + encodeURIComponent(subject) +
+          "&body=" + encodeURIComponent(emailLines);
       } else {
+        if (isPlaceholderPhone) {
+          status.style.color = "#B3261E";
+          status.textContent = "Phone number is being updated. Please use 'Send by email' or email CrossRoadDriving@gmail.com directly.";
+          return;
+        }
+        var waLines = [
+          "Hi CrossRoad Driving School,",
+          "My name is " + fullName + ".",
+          "I live in: " + area + ".",
+          "I'm interested in: " + pkg + ".",
+          msg ? "Message: " + msg : "",
+          "Please contact me on " + phone + "."
+        ].filter(Boolean).join("\n");
+
+        status.style.color = "#146C2E";
         status.textContent = "Opening WhatsApp with your message ready to send\u2026";
-        window.open("https://wa.me/" + cfg.phoneIntl + "?text=" + encodeURIComponent(lines), "_blank", "noopener");
+        window.open("https://wa.me/" + cfg.phoneIntl + "?text=" + encodeURIComponent(waLines), "_blank", "noopener");
       }
     });
   }
