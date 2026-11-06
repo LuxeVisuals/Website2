@@ -4,7 +4,7 @@
    phoneIntl: number WITHOUT +, spaces or leading 0, e.g. 0821234567 -> 27821234567
 ------------------------------------------------------------------ */
 window.CROSSROAD_CONFIG = {
-  phoneDisplay: "082 000 0000",
-  phoneIntl:    "27820000000",
+  phoneDisplay: "076 325 4054",
+  phoneIntl:    "076 325 4054",
   email:        "CrossRoadDriving@gmail.com"
 };
