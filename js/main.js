@@ -60,4 +60,12 @@
       }
     });
   }
+
+  /* Sign click animation */
+  document.querySelectorAll('.sign').forEach(function(sign){
+    sign.addEventListener('click', function(){
+      sign.classList.add('clicked');
+      setTimeout(function(){ sign.classList.remove('clicked'); }, 300);
+    });
+  });
 })();

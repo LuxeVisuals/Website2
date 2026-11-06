@@ -19,6 +19,12 @@
 <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+<canvas id="scroll-bg-canvas"></canvas>
+<div class="intro-overlay" id="intro-overlay">
+  <video class="intro-video" id="intro-video" src="assets/Intro.mp4" autoplay muted playsinline></video>
+  <audio id="intro-audio" src="assets/Intro.mp4" autoplay style="display:none"></audio>
+  <button class="intro-skip" id="intro-skip">Skip &#8250;</button>
+</div>
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="site-header">
   <div class="container header-inner">
@@ -36,12 +42,12 @@
   </div>
 </header>
 <main id="main">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LocalBusiness", "name": "CrossRoad Driving School", "description": "Code 8 learner's and driving licence training in Benoni, Boksburg, Springs and Brakpan.", "areaServed": [{"@type": "City", "name": "Benoni"}, {"@type": "City", "name": "Boksburg"}, {"@type": "City", "name": "Springs"}, {"@type": "City", "name": "Brakpan"}], "address": {"@type": "PostalAddress", "addressCountry": "ZA", "addressRegion": "Gauteng"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LocalBusiness", "name": "CrossRoad Driving School", "description": "Code 8 & 10 learner's and driving licence training in Benoni, Boksburg, Springs and Brakpan.", "areaServed": [{"@type": "City", "name": "Benoni"}, {"@type": "City", "name": "Boksburg"}, {"@type": "City", "name": "Springs"}, {"@type": "City", "name": "Brakpan"}], "address": {"@type": "PostalAddress", "addressCountry": "ZA", "addressRegion": "Gauteng"}}</script>
 <section class="hero">
   <div class="container hero-grid">
     <div>
       <h1>Learn to drive with confidence.</h1>
-      <p class="lead">Code 8 &amp; 10 learner&rsquo;s and driving licence training in Benoni, Boksburg, Springs and Brakpan. Pick-up and drop-off available depending on your location.</p>
+      <p class="lead">Code 8 &amp; 10 learner&rsquo;s and driving licence training in Benoni, Boksburg, Springs, Brakpan and surrounding areas. Pick-up and drop-off available depending on your location.</p>
       <div class="btn-row">
         <a class="btn btn--yellow" href="services.html">Our Services</a>
         <a class="btn btn--outline-light" href="contact.html">Contact us</a>
@@ -63,10 +69,9 @@
 <section class="strip" aria-label="Why choose us">
   <div class="container">
     <ul class="strip-grid">
-      <li class="strip-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12V4h8l10 10-8 8L3 12z"/><circle cx="7.5" cy="8.5" r="1.2"/></svg><div><strong>Code 8 &amp; 10</strong><span>Learner&rsquo;s and driving licence training for Code 8 and Code 10.</span></div></li>
+      <li class="strip-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12V4h8l10 10-8 8L3 12z"/><circle cx="7.5" cy="8.5" r="1.2"/></svg><div><strong>Code 8 &amp; 10</strong><span>Learner&rsquo;s and driving licence for Code 8 and Code 10.</span></div></li>
       <li class="strip-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 018 0v3"/></svg><div><strong>Booking Assistance</strong><span>We handle your DLTC test bookings for you.</span></div></li>
-      <li class="strip-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg><div><strong>Balance after test date</strong><span>Outstanding balance is due once your test date is confirmed.</span></div></li>
-      <li class="strip-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-6.2 7-11.5A7 7 0 005 9.5C5 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><div><strong>Pick-up and drop-off</strong><span>Available depending on your location.</span></div></li>
+      <li class="strip-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-6.2 7-11.5A7 7 0 005 9.5C5 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><div><strong>Pick-up and drop-off</strong><span>Available depending on your location. Rates vary by distance.</span></div></li>
     </ul>
   </div>
 </section>
@@ -81,24 +86,29 @@
       <article class="plan">
         <h3>Learner&rsquo;s Licence Only</h3>
         <p class="plan-desc">Get your Code 8 or Code 10 learner&rsquo;s licence. Includes theory preparation and test booking assistance.</p>
-        <p class="price-note" style="margin-top:auto;padding-top:16px;font-size:.95rem;">All department fees are for the applicant&rsquo;s own account. Balance due once test date is confirmed.</p>
-        <a class="btn btn--outline-dark" href="contact.html">Contact for a Quote</a>
+        <a class="btn btn--outline-dark" href="contact.html" style="margin-top:auto">Contact for a free quote</a>
       </article>
       <article class="plan">
         <h3>Driving Licence Only</h3>
         <p class="plan-desc">For applicants who already hold a valid learner&rsquo;s licence. Includes <strong>8&ndash;10 lessons</strong> (parking &amp; road). Additional lessons added to outstanding balance.</p>
-        <p class="price-note" style="margin-top:auto;padding-top:16px;font-size:.95rem;">All department fees are for the applicant&rsquo;s own account. Balance due once test date is confirmed.</p>
-        <a class="btn btn--outline-dark" href="contact.html">Contact for a Quote</a>
+        <a class="btn btn--outline-dark" href="contact.html" style="margin-top:auto">Contact for a free quote</a>
       </article>
       <article class="plan plan--best">
         <span class="badge">Best value</span>
         <h3>Learner&rsquo;s &amp; Licence Package</h3>
         <p class="plan-desc">From learner&rsquo;s to driving licence. Includes <strong>8&ndash;10 lessons</strong> (parking &amp; road). Additional lessons added to outstanding balance.</p>
-        <p class="price-note" style="margin-top:auto;padding-top:16px;font-size:.95rem;">All department fees are for the applicant&rsquo;s own account. Balance due once test date is confirmed.</p>
-        <a class="btn btn--blue" href="contact.html">Contact for a Quote</a>
+        <a class="btn btn--blue" href="contact.html" style="margin-top:auto">Contact for a free quote</a>
+      </article>
+      <article class="plan">
+        <h3>Refresher Lessons Package</h3>
+        <p class="plan-desc">8 lessons total (parking &amp; road). Perfect for licensed drivers wanting to refresh their skills.</p>
+        <a class="btn btn--outline-dark" href="contact.html" style="margin-top:auto">Contact for a free quote</a>
       </article>
     </div>
-    <p class="fine"><a href="services.html">View all our services</a> including refresher lessons, PrDP, vehicle licence disk renewals and booking assistance.</p>
+    <div class="notice-box">
+      <p><strong>Department Fees:</strong> All DLTC/traffic department fees are for the applicant&rsquo;s own account and are not included in the package price. Outstanding balance is due once your test date is confirmed.</p>
+    </div>
+    <p class="fine">Contact us to find out about all our services including refresher lessons, PrDP, and vehicle licence disk renewals.</p>
   </div>
 </section>
 
@@ -109,8 +119,8 @@
       <p>From first message to test day, in four steps.</p>
     </div>
     <ol class="steps">
-      <li><h3>Get in touch</h3><p>Message us with your area and the service you need and we&rsquo;ll provide a quote.</p></li>
-      <li><h3>Secure your booking</h3><p>Confirm your booking with us and we&rsquo;ll get everything arranged.</p></li>
+      <li><h3>Get in touch</h3><p>Message us with your area and the service you need.</p></li>
+      <li><h3>Get a Free Quote</h3><p>We&rsquo;ll provide a personalised quote for your chosen service.</p></li>
       <li><h3>Learn to drive</h3><p>We confirm your lessons and arrange pick-up and drop-off where possible.</p></li>
       <li><h3>Take your test</h3><p>Once your test date is confirmed, you pay the outstanding balance and test at your DLTC.</p></li>
     </ol>
@@ -157,6 +167,7 @@
           <li><a href="services.html">Services</a></li>
           <li><a href="areas.html">Areas</a></li>
           <li><a href="contact.html">Contact</a></li>
+          <li><a href="tos.html">Terms of Service</a></li>
         </ul>
       </div>
       <div>
@@ -180,17 +191,40 @@
           <strong style="color:#fff;display:block;margin-bottom:4px;">Business Hours</strong>
           Mon&ndash;Fri: 07:00&ndash;16:00<br>
           Saturday: 07:00&ndash;13:00<br>
-          After hours by arrangement
+          After hours by arrangement<br>
+          Public Holidays: Closed
         </div>
       </div>
     </div>
     <div class="footer-bottom">
       <span>&copy; 2026 CrossRoad Driving School. All rights reserved.</span>
-      <span>Code 8 &amp; Code 10 training available.</span>
+      <span><a href="tos.html" style="color:inherit">Terms of Service</a></span>
     </div>
   </div>
 </footer>
 <script src="js/config.js"></script>
 <script src="js/main.js"></script>
+<script src="js/scroll-frames.js"></script>
+<script>
+(function(){
+  var overlay = document.getElementById('intro-overlay');
+  var video = document.getElementById('intro-video');
+  var audio = document.getElementById('intro-audio');
+  var skip = document.getElementById('intro-skip');
+  if(!overlay) return;
+  document.body.style.overflow = 'hidden';
+  function dismiss(){
+    overlay.classList.add('fade-out');
+    document.body.style.overflow = '';
+    if(audio){ audio.pause(); audio.src = ''; }
+    setTimeout(function(){ overlay.remove(); }, 700);
+  }
+  video.addEventListener('ended', dismiss);
+  skip.addEventListener('click', dismiss);
+  // Sync audio with video
+  video.addEventListener('play', function(){ if(audio) audio.play().catch(function(){}); });
+  video.addEventListener('pause', function(){ if(audio) audio.pause(); });
+})();
+</script>
 </body>
 </html>
