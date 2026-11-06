@@ -18,10 +18,16 @@
   }
 
   /* Contact details from config.js */
-  document.querySelectorAll("[data-phone]").forEach(function (el) { el.href = "tel:+" + cfg.phoneIntl; });
+  var rawPhone = (cfg.phoneIntl || "").replace(/[^0-9]/g, "");
+  if (rawPhone.startsWith("0")) {
+    rawPhone = "27" + rawPhone.substring(1);
+  }
+  var phoneForHref = rawPhone || "27763254054";
+
+  document.querySelectorAll("[data-phone]").forEach(function (el) { el.href = "tel:+" + phoneForHref; });
   document.querySelectorAll("[data-phone-text]").forEach(function (el) { el.textContent = cfg.phoneDisplay; });
   document.querySelectorAll("[data-whatsapp]").forEach(function (el) {
-    el.href = "https://wa.me/" + cfg.phoneIntl + "?text=" + encodeURIComponent(greeting);
+    el.href = "https://wa.me/" + phoneForHref + "?text=" + encodeURIComponent(greeting);
     el.target = "_blank"; el.rel = "noopener";
   });
   document.querySelectorAll("[data-email]").forEach(function (el) { el.href = "mailto:" + cfg.email; });
@@ -85,7 +91,7 @@
 
         status.style.color = "#146C2E";
         status.textContent = "Opening WhatsApp with your message ready to send\u2026";
-        window.open("https://wa.me/" + cfg.phoneIntl + "?text=" + encodeURIComponent(waLines), "_blank", "noopener");
+        window.open("https://wa.me/" + phoneForHref + "?text=" + encodeURIComponent(waLines), "_blank", "noopener");
       }
     });
   }

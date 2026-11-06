@@ -5,6 +5,6 @@
 ------------------------------------------------------------------ */
 window.CROSSROAD_CONFIG = {
   phoneDisplay: "076 325 4054",
-  phoneIntl:    "076 325 4054",
+  phoneIntl:    "27763254054",
   email:        "CrossRoadDriving@gmail.com"
 };
