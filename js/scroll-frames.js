@@ -33,8 +33,8 @@
     var dy = (ch - dh) / 2;
 
     ctx.save();
-    // Balanced brightness and contrast: deep rich blacks, bright reflections, not washed out
-    ctx.filter = 'brightness(1.10) contrast(1.08)';
+    // Authentic natural deep tone - no artificial washing out
+    ctx.filter = 'none';
     ctx.drawImage(img, dx, dy, dw, dh);
     ctx.restore();
   }
